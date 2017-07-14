@@ -9,82 +9,75 @@
    write your logic.
 */
 
-cardstack = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" ]
+//cardstack = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" ]
 
-//sample hand = ["Q", "2"]//
-function handValue(yourhand){
+
+function handValue(hand){
+
+	let total = 0
+	let aceCount = 0
 
 for(i = 0; i < hand.length; i++){
 
-handValue = hand.reduce(function(){
+	let card = hand[i]
+	
 
-
-   	if(hand[i] === "J" || hand[i] === "Q" || hand[i] === "K"){
-   		hand[i] = 10
+   	if(card === "J" || card === "Q" || card === "K"){
+   		total += 10
    	}
 
-   	if(hand[i] === "1"){
-   		hand[i] = 1
-   	}
-
-   	if(hand[i] === "2"){
-   		hand[i] = 2
-   	}
-
-   	if(hand[i] === "3"){
-   		hand[i] = 3
-   	}
-
-   	if(hand[i] === "4"){
-   		hand[i] = 4
-   	}
-
-   	if(hand[i] === "5"){
-   		hand[i] = 5
-   	}
-
-   	if(hand[i] === "6"){
-   		yourhand[i] = 6
-   	}
-
-   	if(hand[i] === "7"){
-   		yourhand[i] = 7
-   	}
-
-   	if(hand[i] === "8"){
-   		yourhand[i] = 8
-   	}
-
-   	if(hand[i] === "9"){
-   		hand[i] = 9
-   	}
-
-    if(hand[i] === "A" && handValue <= 10 ){
-   	 hand[i] = 11
+   	else if(card === "A"){
+   	 	total += 11
+   	  	aceCount += 1
     }
 
-    else if (yourhand[i] === "A" & handValue > 10 ){ 
-	yourhand[i] = 1
+   	else if(card === "2"){
+   		total += 2
+   	}
+
+   	else if(card === "3"){
+   		total += 3
+   	}
+
+   	else if(card === "4"){
+   		total += 4
+   	}
+
+   	else if(card === "5"){
+   		total += 5
+   	}
+
+   	else if(card === "6"){
+   		total += 6
+   	}
+
+   	else if(card === "7"){
+   		total += 7
+   	}
+
+   	else if(card === "8"){
+   		total += 8
+   	}
+
+   	else if(card === "9"){
+   		total += 9
+   	}
+
+   	else if(card === "10")
+   		total += 10
+    }
+
+	while (total > 21 && aceCount > 0) {
+	total -=10;
+	aceCount -= 1;
 	}
 
+	return total;
 }
 
-console.log(handValue())
 
 
-   
-
-
-
-
-
-
-
-
-
-
-
-}
+ 
 
 
 /* -----  Hints ------
